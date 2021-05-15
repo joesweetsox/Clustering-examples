@@ -90,8 +90,8 @@ def kmeans_fit(data,k):
     
     plt.scatter(data[0,:],data[1,:],marker='.',s=2,c=model.labels_)
     
-    plt.xlim(-3,3)
-    plt.ylim(-3,3)
+    plt.xlim(-5.5,4)
+    plt.ylim(-26,13)
     
     plt.title("kmeans fit")
     
@@ -145,14 +145,14 @@ def create_graph_object(data):
 def plot_graph(data):
     plt.figure(figsize=(18,18))
     graph_pos=nx.spring_layout(data)
-    nx.draw_networkx_nodes(data,graph_pos, node_size=1, node_color='blue', alpha=0.3)
+    nx.draw_networkx_nodes(data,graph_pos, node_size=1, node_color='yellow', alpha=0.3)
     nx.draw_networkx_edges(data,graph_pos)
 #    nx.draw_networkx_labels(data,graph_pos,font_size=3, font_family='san-serif')
     plt.savefig("plot.pdf")            
             
 
 if __name__ == '__main__':
-    nobs=100
+    nobs=500
     data=create_data(nobs,3,1)
     data_dictionary={'ID':[i for i in range(data.shape[1])],
                      'X':list(data[0,:]),
@@ -170,5 +170,9 @@ if __name__ == '__main__':
     
     closeness_graph=create_graph_object(closeness_df)
     plot_graph(closeness_graph)
+    
+    data2=create_blob(nobs, 3,1,1)
+    
+    kmeans_fit(data2,2)
     
 
