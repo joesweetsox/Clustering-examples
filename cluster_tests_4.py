@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import networkx as nx
+from networkx.algorithms import community
 
 def create_data(nobs, vert_scale, horz_scale):
 
@@ -171,9 +172,18 @@ if __name__ == '__main__':
     closeness_graph=create_graph_object(closeness_df)
     plot_graph(closeness_graph)
     
+    communities_generator=community.label_propagation_communities(closeness_graph)
+    
     data2=create_blob(nobs, 3,1,1)
     
     kmeans_fit(data2,2)
     
-
+    #some notes: it seems like the networkx algorithms prefer only connected graphs
+    #some intersting methods
+    nx.is_connected(closeness_graph)
+    #decides if the graph is connected
+    
+    nx.connected_components(G)
+    #returns a generator object that produces the sets of nodes in the graph that are connected
+    
     
