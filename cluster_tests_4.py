@@ -176,3 +176,4 @@ if __name__ == '__main__':
     kmeans_fit(data2,2)
     
 
+    
