@@ -183,7 +183,7 @@ if __name__ == '__main__':
     nx.is_connected(closeness_graph)
     #decides if the graph is connected
     
-    nx.connected_components(G)
-    #returns a generator object that produces the sets of nodes in the graph that are connected
+    bling=(closeness_graph.subgraph(c) for c in nx.connected_components(closeness_graph))
+    #returns a generator object that produces subgraphs that are only made up of connected components
     
     

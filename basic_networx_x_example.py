@@ -11,6 +11,8 @@ G=nx.barbell_graph(5,1)
 
 communities_generator=community.asyn_lpa_communities(G)
 
+communities_generator=community.girvan_newman(G)
+
 top_level_communities=next(communities_generator)
 
 next_level_communities=next(communities_generator)
