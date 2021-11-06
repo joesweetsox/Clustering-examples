@@ -30,7 +30,7 @@ def create_data(nobs, vert_scale, horz_scale):
     y_data=g1_y.tolist()+g2_y.tolist()+g3_y.tolist()+g4_y.tolist()
     data=np.array([x_data,y_data])   
     
-    fig=plt.figure(dpi=600)
+    fig=plt.figure(dpi=300)
     ax=fig.add_subplot(111)
     ax.set_aspect('equal')
     
